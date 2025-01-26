@@ -9,6 +9,7 @@ import { CartService } from '../../cart--services/cart.service';
   styleUrl: './cart-popup.component.scss'
 })
 export class CartPopupComponent {
+  subtotal: number = 0;
   cartItems: any = [];
 
   constructor(private cartService: CartService) { }
@@ -19,16 +20,34 @@ export class CartPopupComponent {
       this.cartItems = items;
     });
     console.log('cartItems: ', this.cartItems);
-
+    // Suscribirse al carrito y calcular el subtotal dinámicamente
+    this.cartService.cartItems$.subscribe(items => {
+      this.cartItems = items;
+      this.subtotal = this.calculateSubtotal(items);
+    });
   }
-
+  // Calcular el subtotal
+  private calculateSubtotal(items: any[]): number {
+    return items.reduce((subtotal, item) => subtotal + item.price * item.quantity, 0);
+  }
   closeModal() {
-    console.log('hola');
-
+    this.cartService.$modal.emit(false);
   }
 
-  // Método para calcular el total
-  getTotal() {
-    // return this.cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  addMore(product: any) {
+    this.cartService.addToCart(product);
   }
+
+  removeOneProduct(product: any) {
+    this.cartService.removeOneFromCart(product);
+  }
+
+  removeFromCart(product: any) {
+    this.cartService.removeAllFromCart(product);
+  }
+
+  removeAllFromCart() {
+    this.cartService.clearCart();
+  }
+
 }

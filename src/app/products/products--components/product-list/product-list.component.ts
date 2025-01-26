@@ -29,7 +29,6 @@ export class ProductsListComponent implements OnInit {
     this.spinnerService.showSpinner();
     this.productService.getAllProducts().subscribe({
       next: (data) => {
-        console.log('products? ', data)
         this.products = data;
         this.spinnerService.hideSpinner();
       },
@@ -41,8 +40,6 @@ export class ProductsListComponent implements OnInit {
 
   // Método para agregar un producto al carrito
   addToCart(product: any) {
-    console.log('productAdd?', product);
-
     this.cartService.addToCart(product);
   }
 }

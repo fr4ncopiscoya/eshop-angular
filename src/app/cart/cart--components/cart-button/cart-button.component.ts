@@ -17,6 +17,7 @@ export class CartButtonComponent {
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
+    this.cartService.$modal.subscribe((value) => this.isModalOpen = value)
     // Suscribirse al carrito para obtener el número de productos
     this.cartService.cartItems$.subscribe(() => {
       this.cartItemCount = this.cartService.getCartItemCount();
@@ -24,12 +25,10 @@ export class CartButtonComponent {
   }
 
   openCart(): void {
-    console.log('openCart');
     this.isModalOpen = true;
 
     this.cartService.getCartItems().subscribe({
       next: (data) => {
-        console.log('data? ', data)
         this.cartData = data;
       },
       error: (error) => {

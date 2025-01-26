@@ -1,0 +1,28 @@
+@use '../../../../styles/variables';
+
+.modal{
+  background: rgba(0,0,0,.5);
+}
+
+td{
+  & .btn{
+    font-weight:bold;
+    font-size: 1.2em;
+    // height: 2rem;
+    // width: 2rem;
+    padding: 0;
+    &--add{
+      // background-image: url("#{variables.$plus}") !important;
+    }
+    &--delete{
+      // background-image: url("#{variables.$minus}");
+    }
+  }
+  // display: flex;
+  // align-items:center;
+  // justify-content:center;
+  img{
+    height: 3rem;
+    width:3rem;
+  }
+}
