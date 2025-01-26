@@ -1,0 +1,28 @@
+//import
+@use '../../../styles/variables';
+
+app-cart-button{
+  display:flex;
+  align-items:center;
+}
+.navbar{
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  box-shadow: 0px 15px 10px -15px #111;
+  // background-color: red !important;
+}
+.carrito{
+  height: 2rem;
+  width: 2rem;
+  background-image: url("#{variables.$cart-vacio}");
+}
+.nav-item{
+  & .nav-link{
+    & .nav-cart{
+      // background-image: url("#{variables.$eye}");
+      height: 5rem;
+      width: 5rem;
+    }
+  }
+}

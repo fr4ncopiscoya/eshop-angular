@@ -1,0 +1,10 @@
+<button id="cart-modal" type="button" class="btn cart position-relative" (click)='openCart()' >
+  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    {{cartItemCount}}
+    <span class="visually-hidden">unread messages</span>
+  </span>
+</button>
+
+<div class="" *ngIf='isModalOpen == true' >
+  <app-cart-popup></app-cart-popup>
+</div>

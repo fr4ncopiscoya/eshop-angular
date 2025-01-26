@@ -1,0 +1,17 @@
+.products{
+  padding-top: 60px;
+  padding-bottom: var(--bs-gutter-x, 0.75rem);
+  & .products-list{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    & .card{
+      padding: 1rem;
+      p{
+        overflow: hidden;
+        text-overflow:elpisis;
+        // white-space:nowrap;
+      }
+    }
+  }
+}

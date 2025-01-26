@@ -1,0 +1,29 @@
+<div class="modal fade show" id="cart-modal" tabindex="-1" aria-labelledby="cart-modal-label" aria-hidden="true" style="display: block;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cart-modal-label">Carrito de Compras</h5>
+        <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Producto</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of cartItems">
+              <td>{{ item.name }}</td>
+              <td>{{ item.quantity }}</td>
+              <td>{{ item.price * item.quantity | currency }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- <h4>Total: {{ getTotal() | currency }}</h4> -->
+      </div>
+    </div>
+  </div>
+</div>

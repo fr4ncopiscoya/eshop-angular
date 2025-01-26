@@ -1,0 +1,15 @@
+@use '../../../../styles/_variables';
+
+
+.btn{
+  // display:flex;
+  // align-items:center;
+  &.cart{
+    height: 2rem;
+    width: 2rem;
+    background-image: url("#{variables.$cart-vacio}");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
