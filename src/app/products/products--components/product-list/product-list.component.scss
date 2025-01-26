@@ -5,7 +5,12 @@
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1rem;
+    img{
+      width: 10rem;
+      height: 10rem;
+    }
     & .card{
+      align-items:center;
       padding: 1rem;
       p{
         overflow: hidden;

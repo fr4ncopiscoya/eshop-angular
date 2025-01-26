@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { ProductService } from '../../products/products--services/product.service';
 import { CommonModule } from '@angular/common';
 import { CartButtonComponent } from '../../cart/cart--components/cart-button/cart-button.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
-  imports: [CommonModule, CartButtonComponent],
+  imports: [CommonModule, CartButtonComponent, RouterModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })

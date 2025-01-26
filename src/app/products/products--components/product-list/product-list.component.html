@@ -2,12 +2,12 @@
 <h3>PRODUCTOS</h3>
   <!-- <div class='row' > -->
   <div class='products-list' >
-      <div *ngFor='let product of products' class="card">
-        <img [src]='product.image' class="card-img-top" [alt]='product.title'  >
+      <div *ngFor='let product of products' class="card text-center">
+        <img [src]='product.image' class="card-img-top" [alt]='product.title' loading='lazy' >
         <div  class="card-body">
           <h5 class="card-title">{{product.name}}</h5>
           <p class='card-text category'>{{product.category.toUpperCase()}}</p>
-          <p class="card-text description">{{product.description}}</p>
+          <p class="card-text description">{{product.price}}</p>
           <button class="btn btn-primary" (click)="addToCart(product)" >AGREGAR +</button>
         </div>
       </div>
