@@ -8,13 +8,11 @@ export class CartService {
 
   $modal = new EventEmitter<any>();
 
-  private cartItemsSubject = new BehaviorSubject<any[]>([]); // Estado inicial vacío
-  cartItems$ = this.cartItemsSubject.asObservable(); // Exponemos el observable del carrito
-
+  private cartItemsSubject = new BehaviorSubject<any[]>([]);
+  cartItems$ = this.cartItemsSubject.asObservable();
 
   constructor() { }
 
-  // Agregar un producto al carrito
   addToCart(product: any) {
     const currentItems = this.cartItemsSubject.value;
     const productIndex = currentItems.findIndex(item => item.id === product.id);
@@ -29,16 +27,15 @@ export class CartService {
     }
   }
 
-  // Eliminar un producto del carrito
   removeOneFromCart(product: any) {
     const currentItems = this.cartItemsSubject.value;
 
     const updatedItems = currentItems.map(item => {
       if (item.id === product.id) {
-        return { ...item, quantity: item.quantity - 1 }; // Reducir la cantidad
+        return { ...item, quantity: item.quantity - 1 };
       }
       return item;
-    }).filter(item => item.quantity > 0); // Filtrar productos con cantidad > 0
+    }).filter(item => item.quantity > 0);
 
     this.cartItemsSubject.next(updatedItems);
   }
@@ -51,23 +48,19 @@ export class CartService {
     this.cartItemsSubject.next(updatedItems);
   }
 
-  // Vaciar todo el carrito
   clearCart() {
     this.cartItemsSubject.next([]);
   }
 
-  // Obtener los productos del carrito (ya es un observable)
   getCartItems() {
-    return this.cartItems$; // Simplemente retornamos el observable
+    return this.cartItems$;
   }
 
-  // Contar los productos en el carrito
   getCartItemCount() {
     const currentItems = this.cartItemsSubject.value;
     return currentItems.reduce((total, item) => total + item.quantity, 0);
   }
 
-  // Obtener el subtotal del carrito
   getCartSubtotal(): number {
     return this.cartItemsSubject.value.reduce((subtotal, item) => {
       return subtotal + item.price * item.quantity;

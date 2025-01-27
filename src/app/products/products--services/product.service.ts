@@ -18,12 +18,10 @@ export class ProductService {
     return this.http.get(`${this.apiUrl}/categories`);
 
   }
-  // Obtiene los productos filtrados por categoría
   getProductsByCategory(category: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/category/${category}`);
   }
 
-  //Obtenemos el listado de todos los producto
   getAllProducts(): Observable<any> {
     return this.http.get(`${this.apiUrl}`);
   }

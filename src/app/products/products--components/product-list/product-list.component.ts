@@ -14,9 +14,8 @@ import { Subscription } from 'rxjs';
   styleUrl: './product-list.component.scss'
 })
 export class ProductsListComponent implements OnInit {
-  products: any[] = [];  // Array para almacenar los productos
-  category: string | null = null;  // Variable para almacenar la categoría
-
+  products: any[] = [];
+  category: string | null = null;
   private routeSub: Subscription | undefined;  // Suscripción a los cambios de la ruta
   constructor(
     private productService: ProductService,
@@ -34,29 +33,28 @@ export class ProductsListComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    // Nos aseguramos de cancelar la suscripción cuando el componente se destruya para evitar fugas de memoria
+    // Nos aseguramos de cancelar la suscripción cuando el componente se destruya
     if (this.routeSub) {
       this.routeSub.unsubscribe();
     }
   }
-  // Método para agregar un producto al carrito
+
   addToCart(product: any) {
     this.cartService.addToCart(product);
   }
 
-  // Método para redirigir al detalle del producto
   goToProductDetail(product: any): void {
     this.router.navigate(['/product-detail'], {
       state: { product, category: this.category }
     });
   }
 
+  //Si existe una categoria, filtra esa categoria, si no, filtra todos los productos
   listProducts(): void {
     this.spinnerService.showSpinner();
     if (this.category) {
       this.productService.getProductsByCategory(this.category).subscribe({
         next: (data) => {
-          console.log('productByCategeroy? ', data)
           this.products = data;
           this.spinnerService.hideSpinner();
         },
@@ -67,7 +65,6 @@ export class ProductsListComponent implements OnInit {
     } else {
       this.productService.getAllProducts().subscribe({
         next: (data) => {
-          console.log('products? ', data)
           this.products = data;
           this.spinnerService.hideSpinner();
         },

@@ -31,7 +31,7 @@ export class NavbarComponent {
       },
     });
   }
-  // Abre el modal al hacer clic en el cart-button
+
   openCartPopup() {
     this.isModalOpen = !this.isModalOpen;
   }

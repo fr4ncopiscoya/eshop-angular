@@ -21,13 +21,11 @@ export class CartPopupComponent {
       this.cartItems = items;
     });
     console.log('cartItems: ', this.cartItems);
-    // Suscribirse al carrito y calcular el subtotal dinámicamente
     this.cartService.cartItems$.subscribe(items => {
       this.cartItems = items;
       this.subtotal = this.calculateSubtotal(items);
     });
   }
-  // Calcular el subtotal
   private calculateSubtotal(items: any[]): number {
     return items.reduce((subtotal, item) => subtotal + item.price * item.quantity, 0);
   }

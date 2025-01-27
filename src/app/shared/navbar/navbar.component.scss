@@ -12,7 +12,6 @@ app-cart-button{
   z-index: 2;
   width: 100%;
   box-shadow: 0px 15px 10px -15px #111;
-  // background-color: red !important;
 }
 .carrito{
   height: 2rem;
@@ -22,7 +21,6 @@ app-cart-button{
 .nav-item{
   & .nav-link{
     & .nav-cart{
-      // background-image: url("#{variables.$eye}");
       height: 5rem;
       width: 5rem;
     }

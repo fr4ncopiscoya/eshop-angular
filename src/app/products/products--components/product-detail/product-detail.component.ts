@@ -10,7 +10,7 @@ import { SpinnerService } from '../../../services/spinner.service';
   styleUrl: './product-detail.component.scss'
 })
 export class ProductDetailComponent {
-  product: any;  // Para almacenar el producto que recibimos del estado
+  product: any;
   category: string | null = null;
 
   constructor(
@@ -37,7 +37,6 @@ export class ProductDetailComponent {
     }
   }
 
-  // Método para agregar un producto al carrito
   addToCart(product: any) {
     this.cartService.addToCart(product);
   }
