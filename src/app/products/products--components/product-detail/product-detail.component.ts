@@ -12,16 +12,12 @@ import { SpinnerService } from '../../../services/spinner.service';
 export class ProductDetailComponent {
   product: any;  // Para almacenar el producto que recibimos del estado
   category: string | null = null;
+
   constructor(
     private router: Router,
     private cartService: CartService,
     private spinnerService: SpinnerService
-  ) {
-    // Accedemos al producto desde el estado de la navegación
-    // const navigation = this.router.getCurrentNavigation();
-    // this.product = navigation?.extras.state?.['product'];
-    // this.category = navigation?.extras.state?.['category'];
-  }
+  ) { }
 
   goBackToCategory(): void {
     if (this.category) {

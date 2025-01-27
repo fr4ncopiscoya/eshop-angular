@@ -1,22 +1,31 @@
 .products{
-  padding-top: 60px;
+  padding-top: 4.5rem;
   padding-bottom: var(--bs-gutter-x, 0.75rem);
   & .products-list{
+    padding-top: 1rem;
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
     img{
-      width: 10rem;
-      height: 10rem;
+      width: 7rem;
+      height: 7rem;
     }
     & .card{
+      transition:0.5s;
+      cursor:pointer;
       align-items:center;
       padding: 1rem;
+      border-radius: 1rem;
       p{
         overflow: hidden;
         text-overflow:elpisis;
         // white-space:nowrap;
       }
+      &:hover{
+        transform:scale(1.1);
+        // background-color:red;
+      }
     }
+
   }
 }

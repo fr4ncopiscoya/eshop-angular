@@ -15,7 +15,8 @@ export class CartPopupComponent {
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
-    // Suscribirse a los productos del carrito
+    document.body.style.overflow = 'hidden';
+
     this.cartService.getCartItems().subscribe(items => {
       this.cartItems = items;
     });
@@ -50,4 +51,8 @@ export class CartPopupComponent {
     this.cartService.clearCart();
   }
 
+  ngOnDestroy(): void {
+    // Al destruir el componente (cerrar el modal), se reactiva el scroll en el body
+    document.body.style.overflow = 'auto';
+  }
 }
