@@ -1,5 +1,5 @@
 <div class='container-sm products'>
-  <h3>{{ category ? category.toLocaleUpperCase() : 'PRODUCTOS' }}</h3>  <!-- Título dinámico -->
+  <h3>{{ category ? category.toLocaleUpperCase() : 'ALL PRODUCTS' }}</h3>
 
   <div class='products-list'>
     <div *ngFor="let product of products" class="card text-center" (click)="goToProductDetail(product)">
@@ -8,7 +8,7 @@
         <h5 class="card-title">{{ product.name }}</h5>
         <p class='card-text category'>{{ product.category.toUpperCase() }}</p>
         <p class="card-text description">{{ product.price }}</p>
-        <button class="btn btn-primary" (click)="addToCart(product)">AGREGAR +</button>
+        <button class="btn btn-primary" (click)="addToCart(product) ; $event.stopPropagation()">AGREGAR +</button>
       </div>
     </div>
   </div>

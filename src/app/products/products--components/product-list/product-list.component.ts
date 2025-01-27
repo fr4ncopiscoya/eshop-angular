@@ -27,12 +27,12 @@ export class ProductsListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
     this.routeSub = this.activatedRoute.queryParams.subscribe((params) => {
       this.category = params['category'] || null;
       this.listProducts();
     });
   }
+
   ngOnDestroy(): void {
     // Nos aseguramos de cancelar la suscripción cuando el componente se destruya para evitar fugas de memoria
     if (this.routeSub) {
@@ -43,12 +43,12 @@ export class ProductsListComponent implements OnInit {
   addToCart(product: any) {
     this.cartService.addToCart(product);
   }
+
   // Método para redirigir al detalle del producto
   goToProductDetail(product: any): void {
-    console.log('vamoos', product);
-
-    // Usar router.navigate() con state
-    this.router.navigate(['/product--detail'], { state: { product: product } });
+    this.router.navigate(['/product-detail'], {
+      state: { product, category: this.category }
+    });
   }
 
   listProducts(): void {
@@ -76,15 +76,5 @@ export class ProductsListComponent implements OnInit {
         },
       });
     }
-    // this.productService.getAllProducts().subscribe({
-    //   next: (data) => {
-    //     console.log('products? ', data)
-    //     this.products = data;
-    //     this.spinnerService.hideSpinner();
-    //   },
-    //   error: (error) => {
-    //     console.log('Error: ', error);
-    //   },
-    // });
   }
 }
