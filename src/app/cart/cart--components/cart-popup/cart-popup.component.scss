@@ -4,20 +4,31 @@
   background: rgba(0,0,0,.5);
 }
 
-td{
-  & .btn{
-    font-weight:bold;
-    font-size: 1.2em;
-    // height: 2rem;
-    // width: 2rem;
+.cart-footer{
+  display: flex;
+  justify-content:space-between;
+  // align-items:center;
+}
+.btn{
+    // font-weight:bold;
+    // font-size: 1.2em;
+    height: 1.5rem;
+    width: 1.5rem;
     padding: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
     &--add{
-      // background-image: url("#{variables.$plus}") !important;
+      background-image: url("#{variables.$plus}") !important;
     }
     &--delete{
-      // background-image: url("#{variables.$minus}");
+      background-image: url("#{variables.$minus}");
+    }
+    &--trash{
+      background-image: url("#{variables.$trash}");
     }
   }
+td{
   // display: flex;
   // align-items:center;
   // justify-content:center;

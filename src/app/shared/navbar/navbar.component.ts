@@ -21,11 +21,9 @@ export class NavbarComponent {
     this.listCategories();
   }
 
-
   listCategories(): void {
     this.productService.getAllCategories().subscribe({
       next: (data: any) => {
-        console.log('categories: ', data)
         this.categories = data;
       },
       error: (error: any) => {

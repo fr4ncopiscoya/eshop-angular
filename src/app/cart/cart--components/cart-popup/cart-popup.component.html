@@ -6,7 +6,6 @@
         <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <button class='btn' type="" (click)='removeAllFromCart()'>VACIAR CARRITO</button>
         <table class="table">
           <thead>
             <tr>
@@ -26,17 +25,20 @@
               <td>{{ item.quantity }}</td>
               <td>{{ item.price * item.quantity | currency }}</td>
               <td>
-                <button class='btn btn--add' type="" (click)="addMore(item)" >+</button>
+                <button class='btn btn--add' type="" (click)="addMore(item)" ></button>
                 <!-- <span class='icon icon--add'></span> -->
               </td>
               <td>
-                <button class='btn btn--delete' type="" (click)="removeOneProduct(item)" >-</button>
+                <button class='btn btn--delete' type="" (click)="removeOneProduct(item)" ></button>
                 <!-- <span class='icon icon--delete'></span> -->
               </td>
             </tr>
           </tbody>
         </table>
-        <h4>Total: {{ subtotal | currency }}</h4>
+        <div class='cart-footer'>
+          <h4>Total: {{ subtotal | currency }}</h4>
+          <button class='btn btn--trash' type="" (click)='removeAllFromCart()'></button>
+        </div>
       </div>
     </div>
   </div>
