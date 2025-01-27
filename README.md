@@ -21,13 +21,19 @@ This project was generated using [Sream Architecture](https://www.milanjovanovic
 
 This project was generated using [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) verison 5.0.0 with [Sass](https://sass-lang.com/)
 
-[!NOTE]
+## API Reference
+
+```http
+  BASE_API https://fakestoreapi.com/products
+```
+
+.[!NOTE].
 I am aware that I could have used another type of architecture to structure my project, such as DDD among others, but recently I am trying to implement the Scream Architecture to my projects, I know it is not well optimized, but I wanted to use it in the same way
 
 ## Development server
 
 To start a local development server, run:
-[!IMPORTANT]
+.[!IMPORTANT].
 Dont forgot
 npm i
 
@@ -50,9 +56,3 @@ This will compile your project and store the build artifacts in the `dist/` dire
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-
-## API Reference
-
-```http
-  BASE_API https://fakestoreapi.com/products
-```
