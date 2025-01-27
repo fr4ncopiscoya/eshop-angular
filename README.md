@@ -33,13 +33,13 @@ I am aware that I could have used another type of architecture to structure my p
 ## Development server
 
 To start a local development server, run:
-.[!IMPORTANT].
-Dont forgot
-npm i
 
 ```bash
 ng serve
 ```
+
+.[!IMPORTANT].
+Dont forgot npm i
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
